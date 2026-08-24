@@ -11,8 +11,15 @@ Console.Write("Idade do cliente: ");
 int idade = int.Parse(Console.ReadLine());
 
 decimal custoBruto = 5.00m + (25.00m * quantidade);
+decimal desconto = 0.00m;
 
-Console.WriteLine("Valor bruto: " + custoBruto);
+if (cupom.ToUpper() == "CINEMA10")
+{
+    desconto = custoBruto * 0.10m;
+}
+
+decimal valorFinal = custoBruto - desconto;
+
+Console.WriteLine("Valor bruto: " + custoBruto); 
+Console.WriteLine("Valor final: " + valorFinal);
 Console.ReadLine();
-
-
