@@ -1,4 +1,7 @@
-﻿Console.Write("Nome do cliente: ");
+﻿using System.Globalization;
+CultureInfo br = new CultureInfo("pt-BR");
+
+Console.Write("Nome do cliente: ");
 string nome = Console.ReadLine();
 
 Console.Write("Quantidade de ingressos: ");
@@ -20,6 +23,12 @@ if (cupom.ToUpper() == "CINEMA10")
 
 decimal valorFinal = custoBruto - desconto;
 
-Console.WriteLine("Valor bruto: " + custoBruto); 
-Console.WriteLine("Valor final: " + valorFinal);
+bool sessaoNoturna = quantidade > 1 && idade >= 18;
+
+Console.WriteLine("Cliente: " + nome.ToUpper());
+Console.WriteLine("Valor bruto: " + custoBruto.ToString("C", br));
+Console.WriteLine("Valor final: " + valorFinal.ToString("C", br));
+Console.WriteLine("Elegivel para Sessao Noturna: " + sessaoNoturna);
+
 Console.ReadLine();
+
